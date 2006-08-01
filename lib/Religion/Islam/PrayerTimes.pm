@@ -18,7 +18,7 @@ use Exporter;
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw();
-our $VERSION = '1.0';
+our $VERSION = '1.01';
 
 use Math::Complex;
 use POSIX;
@@ -614,43 +614,43 @@ my ($self, %args) = @_;
 	#while (($key, $value)=each(%args)) {print ("PrayerLocation: $key =  $value\n");}
 }
 #==========================================================
-=PrayerTimes
-  For international prayer times see Islamic Fiqah Council of the Muslim
-  World League:  Saturday 12 Rajeb 1406H, concerning prayer times and fasting
-  times for countries of high latitudes.
-  This program is based on the above.
-
- Arguments:
-   yg, mg, dg : Date in Greg
-   param[0]				: Safety time  in hours should be 0.016383h
-   longtud,latud		: param[1],[2] : The place longtude and latitude in radians
-   HeightdifW			: param[3]: The place western herizon height difference in meters
-   HeightdifE			: param[4]: The place eastern herizon height difference in meters
-   Zonh						:param[5]: The place zone time dif. from GMT  West neg and East pos in decimal hours
-  fjrangl					: param[6]: The angle (radian) used to compute Fajer prayer time (OmAlqrah  -19 deg.)
-  ashangl					: param[7]: The angle (radian) used to compute Isha  prayer time
-								  ashangl=0 then use  (OmAlqrah: ash=SunSet+1.5h)
-  asr							: param[8]: The Henfy (asr=2) Shafi (asr=1, Omalqrah asr=1)
-  param[9]				: latude (radian) that should be used for places above -+65.5 should be 45deg as suggested by Rabita
-  param[10]				: The Isha fixed time from Sunset
-
-  Output:
-  lst[]...lst[n], 
-	1:	 Fajer 
-	2:	 Sunrise
-	3:	 Zohar
-	4:	 Aser
-	5:	 Magreb
-	6:	 Isha
-	7:	 Fajer using exact Rabita method for places >48
-	8:	 Ash   using exact Rabita method for places >48
-	9: Eid Prayer Time
-          for places above 48 lst[1] and lst[6] use a modified version of
-          Rabita method that tries to eliminate the discontinuity
-         all in 24 decimal hours
-
-returns flag	:0 if there are problems, flag:1 no problems
-=cut
+#=PrayerTimes
+#  For international prayer times see Islamic Fiqah Council of the Muslim
+#  World League:  Saturday 12 Rajeb 1406H, concerning prayer times and fasting
+#  times for countries of high latitudes.
+#  This program is based on the above.
+#
+# Arguments:
+#   yg, mg, dg : Date in Greg
+#   param[0]				: Safety time  in hours should be 0.016383h
+#   longtud,latud		: param[1],[2] : The place longtude and latitude in radians
+#   HeightdifW			: param[3]: The place western herizon height difference in meters
+#   HeightdifE			: param[4]: The place eastern herizon height difference in meters
+#   Zonh						:param[5]: The place zone time dif. from GMT  West neg and East pos in decimal hours
+#  fjrangl					: param[6]: The angle (radian) used to compute Fajer prayer time (OmAlqrah  -19 deg.)
+#  ashangl					: param[7]: The angle (radian) used to compute Isha  prayer time
+#								  ashangl=0 then use  (OmAlqrah: ash=SunSet+1.5h)
+#  asr							: param[8]: The Henfy (asr=2) Shafi (asr=1, Omalqrah asr=1)
+#  param[9]				: latude (radian) that should be used for places above -+65.5 should be 45deg as suggested by Rabita
+#  param[10]				: The Isha fixed time from Sunset
+#
+#  Output:
+#  lst[]...lst[n], 
+#	1:	 Fajer 
+#	2:	 Sunrise
+#	3:	 Zohar
+#	4:	 Aser
+#	5:	 Magreb
+#	6:	 Isha
+#	7:	 Fajer using exact Rabita method for places >48
+#	8:	 Ash   using exact Rabita method for places >48
+#	9: Eid Prayer Time
+#          for places above 48 lst[1] and lst[6] use a modified version of
+#          Rabita method that tries to eliminate the discontinuity
+#         all in 24 decimal hours
+#
+#returns flag	:0 if there are problems, flag:1 no problems
+#=cut
 
 # Compute prayer times and sunrise
 sub PrayerTimes {
