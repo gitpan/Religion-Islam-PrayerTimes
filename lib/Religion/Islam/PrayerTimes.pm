@@ -18,7 +18,7 @@ use Exporter;
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw();
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 use Math::Complex;
 use POSIX;
@@ -1787,7 +1787,7 @@ Religion::Islam::PrayerTimes - Calculates Muslim Prayers Times and Sunrise
 
 =head1 DESCRIPTION
 
-This module calculates Musilm prayers times and sunrise for any location on the earth.
+This module calculates Muslim prayers times and sunrise for any location on the earth.
 
 =head1 SEE ALSO
 
